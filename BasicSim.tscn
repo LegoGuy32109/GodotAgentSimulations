@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://ciua2kljvav0x"]
+
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="1_e8gws"]
+[ext_resource type="Texture2D" uid="uid://by530hntovf87" path="res://icon.svg" id="1_g3vhi"]
+[ext_resource type="PackedScene" uid="uid://c8igbwsv1qf3w" path="res://CircleSummoner.tscn" id="3_uxrfg"]
+[ext_resource type="Texture2D" uid="uid://b1t88yh7m387b" path="res://beachball.png" id="4_c1ntf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rt3v"]
+size = Vector2(1154, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf83c"]
+size = Vector2(24, 649.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lreh0"]
+size = Vector2(33.2324, 33.2324)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jm1qj"]
+vertices = PackedVector2Array(27, 24, 1125, 25, 1128, 621, 27, 619)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(27, 24, 1125, 25, 1128, 621, 27, 619)]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ap8q"]
+radius = 33.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PeopleGen" type="Node2D" parent="."]
+position = Vector2(264, 296)
+
+[node name="Border" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(576, 11.75)
+shape = SubResource("RectangleShape2D_8rt3v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(576, 635)
+shape = SubResource("RectangleShape2D_8rt3v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2(13, 323)
+shape = SubResource("RectangleShape2D_rf83c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2(1139, 323)
+scale = Vector2(0.996679, 1)
+shape = SubResource("RectangleShape2D_rf83c")
+
+[node name="ColorRect" type="ColorRect" parent="Border"]
+offset_right = 100.0
+offset_bottom = 40.0
+scale = Vector2(11.6, 16.4)
+color = Color(0, 0.301961, 0.301961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Border"]
+offset_left = 26.0
+offset_top = 23.0
+offset_right = 1126.0
+offset_bottom = 623.0
+color = Color(0.101961, 0.439216, 0.45098, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(328, 208)
+scale = Vector2(2.81021, 2.81021)
+script = ExtResource("1_e8gws")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_lreh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_g3vhi")
+
+[node name="CircleSummoner" parent="." instance=ExtResource("3_uxrfg")]
+visible = false
+position = Vector2(973, 127)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navpoly = SubResource("NavigationPolygon_jm1qj")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+scale = Vector2(0.0366342, 0.0366343)
+texture = ExtResource("4_c1ntf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("CircleShape2D_2ap8q")

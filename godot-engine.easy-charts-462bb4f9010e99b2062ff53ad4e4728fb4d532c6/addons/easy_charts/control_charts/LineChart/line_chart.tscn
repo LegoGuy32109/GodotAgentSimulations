@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqd27erglvjnq"]
+
+[ext_resource type="Script" path="res://addons/easy_charts/control_charts/LineChart/line_chart.gd" id="4"]
+
+[node name="LineChart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("4")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.882353, 0.882353, 0.882353, 1)
+
+[node name="ChartName" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+
+[node name="Points" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Legend" type="HBoxContainer" parent="."]
+visible = false
+alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
