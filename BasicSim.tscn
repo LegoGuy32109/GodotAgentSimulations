@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciua2kljvav0x"]
+[gd_scene load_steps=7 format=3 uid="uid://ciua2kljvav0x"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_e8gws"]
-[ext_resource type="Texture2D" uid="uid://by530hntovf87" path="res://icon.svg" id="1_g3vhi"]
-[ext_resource type="PackedScene" uid="uid://c8igbwsv1qf3w" path="res://CircleSummoner.tscn" id="3_uxrfg"]
-[ext_resource type="Texture2D" uid="uid://b1t88yh7m387b" path="res://beachball.png" id="4_c1ntf"]
+[ext_resource type="Texture2D" uid="uid://c3n6mvllgiqjx" path="res://Assets/Player.png" id="2_fe6tb"]
+[ext_resource type="PackedScene" uid="uid://btu8s0iq7xcy3" path="res://boid.tscn" id="3_x5tgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rt3v"]
 size = Vector2(1154, 22.5)
@@ -11,21 +10,10 @@ size = Vector2(1154, 22.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf83c"]
 size = Vector2(24, 649.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lreh0"]
-size = Vector2(33.2324, 33.2324)
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_jm1qj"]
-vertices = PackedVector2Array(27, 24, 1125, 25, 1128, 621, 27, 619)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(27, 24, 1125, 25, 1128, 621, 27, 619)]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2ap8q"]
-radius = 33.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrs87"]
+radius = 18.1512
 
 [node name="Node2D" type="Node2D"]
-
-[node name="PeopleGen" type="Node2D" parent="."]
-position = Vector2(264, 296)
 
 [node name="Border" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
@@ -61,33 +49,45 @@ offset_right = 1126.0
 offset_bottom = 623.0
 color = Color(0.101961, 0.439216, 0.45098, 1)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["agents"]]
 position = Vector2(328, 208)
-scale = Vector2(2.81021, 2.81021)
+scale = Vector2(0.89021, 0.89021)
 script = ExtResource("1_e8gws")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_lreh0")
+position = Vector2(-0.177917, -7.62939e-06)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_xrs87")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_g3vhi")
+texture = ExtResource("2_fe6tb")
 
-[node name="CircleSummoner" parent="." instance=ExtResource("3_uxrfg")]
-visible = false
-position = Vector2(973, 127)
+[node name="Boid" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navpoly = SubResource("NavigationPolygon_jm1qj")
+[node name="Boid2" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="Boid3" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
 
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+[node name="Boid4" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
-scale = Vector2(0.0366342, 0.0366343)
-texture = ExtResource("4_c1ntf")
+[node name="Boid5" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-shape = SubResource("CircleShape2D_2ap8q")
+[node name="Boid6" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)
+
+[node name="Boid7" parent="." instance=ExtResource("3_x5tgj")]
+position = Vector2(686, 346)
+scale = Vector2(0.44, 0.44)

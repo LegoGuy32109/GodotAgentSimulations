@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1t88yh7m387b"
-path="res://.godot/imported/beachball.png-0355e2a7610e054d579c08f22b59c8b5.ctex"
+uid="uid://c3n6mvllgiqjx"
+path="res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://beachball.png"
-dest_files=["res://.godot/imported/beachball.png-0355e2a7610e054d579c08f22b59c8b5.ctex"]
+source_file="res://Assets/Player.png"
+dest_files=["res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"]
 
 [params]
 
